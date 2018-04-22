@@ -20,6 +20,39 @@ def sumTo(target):  # if nums = [1, 2, ..., target-1]
     return (1 << target - 1) - 1
 
 
+class Solution(object):
+    def threeSum(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        res = []
+        dic = {}
+        for v in nums:
+            if v in dic:
+                dic[v] += 1
+            else:
+                dic[v] = 1
+        used_numbers = set()
+        for i, vi in enumerate(nums, 1):
+            j = i
+            while j < len(nums):
+                #print(i, vi, "; ", j, nums[j])
+                if (- vi - nums[j] in dic and not (vi in used_numbers and nums[j] in used_numbers)
+                    and dic[vi] - (vi == nums[j]) - (vi == -vi - nums[j]) > 0
+                        and dic[nums[j]] - (nums[j] == vi) - (nums[j] == -vi - nums[j]) > 0):
+                    # and dic[-vi-nums[j]] - (-vi-nums[j] == vi) - (-vi-nums[j] == nums[j]) > 0):
+                    dic[vi] -= 1
+                    dic[nums[j]] -= 1
+                    dic[-vi - nums[j]] -= 1
+                    res.append([vi, nums[j], -vi - nums[j]])
+                    used_numbers.add(vi)
+                    used_numbers.add(nums[j])
+                    used_numbers.add(-vi - nums[j])
+                j += 1
+        return res
+
+
 """
 Let $$c_n$$ be the number of ways to make $$n$$ using a set of number $$S$$. 
 

@@ -16,11 +16,12 @@ Cracking the coding interviews
 
 # Reflexes
 1. Can **sorting** help me ?
-2. Can a **dictionary** help me ?
-3. Can **multiple pointers** help me ?
-4. Can a **frequency array** help me ?
-5. Can **multiple pass** help me ?
-6. Is there an **end** property ?
+2. Can **splitting** help me ? 
+3. Can a **dictionary** help me ?
+4. Can **multiple pointers** help me ?
+5. Can a **frequency array** help me ?
+6. Can **multiple pass** help me ?
+7. Is there an **end** property ?
 
 # Tricks
 * Checking if $i \in Stack$ in $O(1)$: just keep updated a **is_in-array** `is_in_stack` where `is_in_stack[i]` tells whether $i \in Stack$.
