@@ -1,13 +1,6 @@
 Cracking the coding interviews
 ===
 # TODO
-- [ ] Checkout the *set* structure in python
-- [ ] Datastructure section
-- [x] Bisection search
-- [ ] Merge sort
-- [ ] Quick search
-- [x] Décomposition dans une base
-- [x] Infinite boundaries
 - [ ] [Technical tips](https://medium.freecodecamp.org/coding-interviews-for-dummies-5e048933b82b)
 - [ ] [Other](https://medium.com/@nickciubotariu/ace-the-coding-interview-every-time-d169ce1fd3fc)
 - [ ] [Top 10 questions per topic](https://www.geeksforgeeks.org/top-10-algorithms-in-interview-questions/)
@@ -31,26 +24,30 @@ Cracking the coding interviews
 
 # Tricks
 * Checking if $i \in Stack$ in $O(1)$: just keep updated a **is_in-array** `is_in_stack` where `is_in_stack[i]` tells whether $i \in Stack$.
-* Think about **bitwise operators**.
+* Sets with fewer than 64 possible items can be coded as integers. 
 * For singly linked lists, creating **2 pointers** $n$ nodes apart may be handy. It is also applicable to every sequence of elements. (find the middle / $n^{th}$ from the end, a cycle...)
 * Use **infinite boundaries** `float('inf')` or`math.inf`.
 * Use **frequency arrays** when counting letters. A **counting sort** might also prove useful (as it is linear for frequencies) later on. 
 * To find $a$ and $b$ in a array so that $a+b = c$, save every seen number in a set $S$ and for every new $i$, check if $c-i \in S$.
 
 # Properties to look for
-* **Sorted** -> *Bisection search*.
+* **Sorted** &#10140; *Bisection search*.
 
-* **iterative DFS** -> stack
+* **iterative DFS** &#10140; stack
 
-* **BFS** -> queue
-  * Need to keep track of the depth? -> 2 queues
+* **BFS** &#10140; queue
+  * Need to keep track of the depth? &#8594; 2 queues
 
-* **Optimal substructure:** -> *Dynamic programming* to compute all the optimal solution of size $0 \ldots n$  and deduce the solution.
+* **Optimal substructure** &#10140; *Dynamic programming* to compute all the optimal solution of size $0 \ldots n$  and deduce the solution.
     *  when it is possible to craft the optimal solution for an instance size $n$ using the solution to instances of size $i_1, \ldots, i_p < n$.
     * Can be on a pair of parameters, solution of size $(n, k)$ can be deduced from solution of size $(i, j)$ where $i \leq n$ and $j \leq k$.
     > **Examples:** subarray, knapsack, longest substring
 
 # Strategies
+
+## Do It Yourself
+
+Solve an example with your brain and hands and see what "algorithm" you used.
 
 ## B.U.D.
 
@@ -64,10 +61,6 @@ Can I save time by using more space ?
 * Hash tables
 * Frequency arrays
 * Dynamic programming
-
-## Do It Yourself
-
-Solve an example with your brain and hands and see what "algorithm" it used.
 
 
 
@@ -114,9 +107,9 @@ def bisect(xs, key, f):
     return left
 ```
 When will they cross ?
-* `f(x, key) = x < key` -> Move left when `x == key`
+* `f(x, key) = x < key` &#10140; Move left when `x == key`
     * Index of the first occurrence of key
-* `f(x, key) = x <= key` -> Move right when `x == key`
+* `f(x, key) = x <= key` &#10140; Move right when `x == key`
     * Index of the last occurrence of key + 1
 ```python
 bisect_left  = lambda xs,key: bisect(xs, key, lambda x,y: x<y)       # First
@@ -228,7 +221,7 @@ def f(X, Y):
     return res[-1][-1]
 ```
 
-# int <-> char
+# int &#8596; char
 ```python
 chr(65)   # -> 'A'
 ord('A')  # -> 65
@@ -309,7 +302,7 @@ Efficient when there is less than 64 possible values
 
 You should ideally now about:
 
-(Some are overkill for an interview but nice to know as a software engineer)
+(Most are overkill for an interview but nice to know as a software engineer)
 
 ## Numeric/mathematical
 
@@ -336,13 +329,15 @@ You should ideally now about:
     * `res = res * a` if n odd
     * `a = a * a` otherwise
 * Matrix exponentiation
-    * Just square exponentiation with matrix
+    * use exponentiation by squaring
 * Range minimum query
 
 ## Tree/graph
 
 * BFS
+    * stack or recursion
 * DFS
+    * queue
 * Dijkstra's algorithm
 * A* search
 * Toposort
