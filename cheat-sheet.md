@@ -27,6 +27,7 @@ Cracking the coding interviews
 3. Can **multiple pointers** help me ?
 4. Can a **frequency array** help me ?
 5. Can **multiple pass** help me ?
+6. Is there an **end** property ?
 
 # Tricks
 * Checking if $i \in Stack$ in $O(1)$: just keep updated a **is_in-array** `is_in_stack` where `is_in_stack[i]` tells whether $i \in Stack$.
@@ -66,7 +67,7 @@ Can I save time by using more space ?
 
 ## Do It Yourself
 
-Solve an example with your brain and hands and see what "algorithm" you used.
+Solve an example with your brain and hands and see what "algorithm" it used.
 
 
 
@@ -81,7 +82,7 @@ Solve an example with your brain and hands and see what "algorithm" you used.
 
 
 * **Dictionary / Hashtable**
-  * $O(1)$:  `dic = {}`, `key in dic`,  `dic[key]`, `del dic[key]`
+  * $O(1)$:  `dic = {}`, `key in dic`,  `dic[key]`, `del dic[key]` on average, worst case $O(n)$
 * **Set**
   * $O(1)$:  `s = set([])`, `x in s`, `s.add(x)`, `del s[x]`
   * $O(n_1)$: `s1|s2 ` , `s1&s2` , `s1-s2`,  `s1^s2`
@@ -291,17 +292,98 @@ def base10tobNoZero(q, b=2):
 Efficient when there is less than 64 possible values
 
 
-| Set | Binary | 
-| -------- | -------- | 
-| $\emptyset$     | `0`     | 
-| $\{i\}$ | `1 << i`  |
-| $\{0, 1, \ldots, n-1\}$ | `(1 << n) - 1` |
-| $A \cup B$ | `A | B` |
-| $A \cap B$ | `A & B` |
-| $(A \setminus B) \cup (B \setminus A)$ | `A ^ B` |
-| $A \subseteq B$ | `A & B == A` |
-| $i \in A$ | `(1 << i) & A` |
-| $\{min(A)\}$ | `-A & A` |
+| Set                                    | Binary         |
+| -------------------------------------- | -------------- |
+| $\emptyset$                            | `0`            |
+| $\{i\}$                                | `1 << i`       |
+| $\{0, 1, \ldots, n-1\}$                | `(1 << n) - 1` |
+| $A \cup B$                             | `A | B`        |
+| $A \cap B$                             | `A & B`        |
+| $(A \setminus B) \cup (B \setminus A)$ | `A ^ B`        |
+| $A \subseteq B$                        | `A & B == A`   |
+| $i \in A$                              | `(1 << i) & A` |
+| $\{min(A)\}$                           | `-A & A`       |
+
+
+# Algorithms
+
+You should ideally now about:
+
+## Numeric/mathematical
+
+* Kadane's algorithm
+    * every subarray has an ending
+    * the maximum subarray ending at the spot `i + 1 is either`
+       1. maximum subarray ending at the spot `i` +  `A[i + 1]`
+       2. `A[i + 1]`
+* Boyer-Moore majority vote algorithm
+    * find a candidate for the majority element
+        1. keep a counter of the number of occurence of the current candidate while iterating through the list
+        2. `++` if the current element is the candidate `--` otherwise
+        3. if counter reaches 0, candidate = current candidate
+    * check if the candidate is the majority element
+* Quickselect / Median-of-medians
+* Reservoir sampling
+* Sieve of Eratosthenes
+* Alias method
+* Euclid's algorithm
+    * if `b != 1` return  = `gcd(b, a % b)`
+    * else return a
+* Exponentiation by squaringMatrix exponentiation
+    * Just square exponentiation with matrix
+    * `res = res * a` if n odd
+    * `a = a * a` otherwise
+* Matrix exponentiation
+    * Just square exponentiation with matrix
+* Range minimum query
+
+## Tree/graph
+
+* BFS
+* DFS
+* Dijkstra's algorithm
+* A* search
+* Toposort
+* Morris traversal
+* Prim's algorithm
+* Kruskal's algorithm
+* Bellman-Ford algorithm
+* Graham scan algorithm
+* Ford-Fulkerson algorithm / Edmunds-Karp algorithm
+* Floyd's cycle finding algorithm
+* Closest pair of points algorithm
+* Hopcroft-Karp algorithm
+
+## String
+
+* Rabin-Karp algorithm
+* Knuth-Morris-Pratt algorithm
+* Aho-Corasick algorithm
+* Ukkonen's algorithm / SA-IS algorithm
+* Longest common subsequence
+* Manacher's algorithm
+
+## Search
+
+* Binary search
+* Interpolation search
+* Meta binary search
+
+## Sorting
+
+* Merge sort
+* Heap sort
+* Quicksort + Three way partitioning + Median of three
+* Dutch national flag algorithm
+
+## Other
+
+* Fisher-Yates shuffle
+* Shunting-yard algorithm
+* Minimax
+* Mo's algorithm
+* Square root decomposition
+* Rolling hash
 
 
 # Links
