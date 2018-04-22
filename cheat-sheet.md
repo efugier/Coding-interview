@@ -124,9 +124,9 @@ bisect_right = lambda xs,key: bisect(xs, key, lambda x,y: x<=y) - 1  # Last
 ```
 * Might be necessary to check if the final value points to key
 
-# Sorting Algorithms
+# Sorting algorithms
 
-## Merge Sort
+## Merge sort
 
 1. Split the list in 2
 2. Recursively sort the left-most part and right-most part
@@ -371,7 +371,7 @@ You should ideally now about:
 
 ## Sorting
 
-* Merge sort
+* Merge sort [meep](cheat-sheet.md#merge-sort)
 * Heap sort
 * Quicksort + Three way partitioning + Median of three
 * Dutch national flag algorithm
