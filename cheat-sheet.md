@@ -183,7 +183,7 @@ def counting_sort(array, maxval):
 
 
 # Dynamic programming
-## Simple steps:
+## Simple steps
 1. **Recursive** solution
 2. **Store** intermediate results
 3. Bottom up (Optional)
