@@ -309,6 +309,8 @@ Efficient when there is less than 64 possible values
 
 You should ideally now about:
 
+(Some are overkill for an interview but nice to know as a software engineer)
+
 ## Numeric/mathematical
 
 * Kadane's algorithm
