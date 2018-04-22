@@ -26,7 +26,7 @@ Cracking the coding interviews
 
 # Tricks
 * Checking if $i \in Stack$ in $O(1)$: just keep updated a **is_in-array** `is_in_stack` where `is_in_stack[i]` tells whether $i \in Stack$.
-* Sets with fewer than 64 possible items can be coded as integers. 
+* Sets with fewer than 64 possible items can be [coded as integers](#coding-sets-on-bits).
 * For singly linked lists, creating **2 pointers** $n$ nodes apart may be handy. It is also applicable to every sequence of elements. (find the middle / $n^{th}$ from the end, a cycle...)
 * Use **infinite boundaries** `float('inf')` or`math.inf`.
 * Use **frequency arrays** when counting letters. A **counting sort** might also prove useful (as it is linear for frequencies) later on. 
