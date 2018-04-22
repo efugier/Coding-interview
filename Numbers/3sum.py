@@ -24,7 +24,7 @@ class Solution(object):
 
         for p in pos:
             for n in neg:
-                o = -(p + n)  # for opposite
+                o = -(p + n)  # o for opposite
                 if o in dic:
                     if o == p and dic[p] > 1:
                         res.append([n, p, p])
@@ -32,5 +32,32 @@ class Solution(object):
                         res.append([n, n, p])
                     elif o < n or o > p or o == 0:
                         res.append([n, o, p])
+
+        return res
+
+    def threeSum2(self, nums):
+        nums.sort()
+        res = []
+        for i in range(len(nums) - 2):
+            if nums[i] > 0:
+                break
+            if not(i == 0 or nums[i] > nums[i - 1]):
+                continue
+
+            l, r = i + 1, len(nums) - 1
+            while l < r:
+                s = nums[i] + nums[l] + nums[r]
+                if s < 0:
+                    l += 1
+                elif s > 0:
+                    r -= 1
+                else:
+                    res.append([nums[i], nums[l], nums[r]])
+                    while l < r and nums[l] == nums[l + 1]:
+                        l += 1
+                    while l < r and nums[r] == nums[r - 1]:
+                        r -= 1
+                    l += 1
+                    r -= 1
 
         return res
