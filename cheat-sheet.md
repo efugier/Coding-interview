@@ -15,13 +15,14 @@ Cracking the coding interviews
 6. Ask for approval before coding, "Does it seem like a good strategy ?" "Should I start coding ?"
 
 # Reflexes
-1. Can **sorting** help me ?
-2. Can **splitting** help me ? 
+1. Can **sorting** input data help me ?
+2. Can **splitting** input data help me ? 
 3. Can a **dictionary** help me ?
 4. Can **multiple pointers** help me ?
 5. Can a **frequency array** help me ?
 6. Can **multiple pass** help me ?
-7. Is there an **end** property ?
+7. Can **case-based reasoning** help me ?
+8. Is there an **end** property ?
 
 # Tricks
 * Checking if $i \in Stack$ in $O(1)$: just keep updated a **is_in-array** `is_in_stack` where `is_in_stack[i]` tells whether $i \in Stack$.
@@ -354,11 +355,13 @@ You should ideally now about:
 
 ## String
 
+* Longest common subsequence
+    * `lcs[p][q]` = lcs ending at index `p` in str1 and `q` in str2 (DP)
+    * `lcs[p][q]` = `str1[p] == str2[q] ? 1 + lcs[p-1][q-1] : max(lcs[p][q-1], lcs[p-1][q])`
 * Rabin-Karp algorithm
 * Knuth-Morris-Pratt algorithm
 * Aho-Corasick algorithm
 * Ukkonen's algorithm / SA-IS algorithm
-* Longest common subsequence
 * Manacher's algorithm
 
 ## Search
