@@ -365,13 +365,13 @@ You should ideally now about:
 
 ## Search
 
-* Binary search
+* [Bisection search](#bisection-search)
 * Interpolation search
 * Meta binary search
 
 ## Sorting
 
-* Merge sort [meep](cheat-sheet.md#merge-sort)
+* [Merge sort](#merge-sort)
 * Heap sort
 * Quicksort + Three way partitioning + Median of three
 * Dutch national flag algorithm
@@ -392,4 +392,3 @@ You should ideally now about:
 ## Bloomberg
 * [Bloomberg](https://www.geeksforgeeks.org/bloomberg-recruitment-process/)
 * [Interview + know bloomberg](https://www.geeksforgeeks.org/bloomberg-interview-experience-set-5-entry-level-software-engineer/)
-
