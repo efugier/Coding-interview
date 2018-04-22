@@ -128,8 +128,8 @@ bisect_right = lambda xs,key: bisect(xs, key, lambda x,y: x<=y) - 1  # Last
 3. Merges these parts
 
 ```python {.line-numbers}
-def fuse(t, i, j, k, aux):
-    # fuse t[i:k] in aux[i:k] supposing t[i:j] and t[j:k] are sorted
+def merge(t, i, j, k, aux):
+    # merge t[i:k] in aux[i:k] assuming t[i:j] and t[j:k] are sorted
     a, b = i, j  # iterators
     for s in range(i, k):
         if a == j or (b < k and t[b] < t[a]):
@@ -141,26 +141,26 @@ def fuse(t, i, j, k, aux):
 ```
 
 ```python {.line-numbers}
-def merge_sort(t):
+def mergeSort(t):
     aux = [None] * len(t)
 
-    def merge_rec(i, k):
+    def mergeRec(i, k):
         # merge sort t from i to k
         if k > i + 1:
             j = i + (k - i) // 2
-            merge_rec(i, j)
-            merge_rec(j, k)
+            mergeRec(i, j)
+            mergeRec(j, k)
             fuse(t, i, j, k, aux)
             t[i:k] = aux[i:k]
             
-    merge_rec(0, len(t))
+    mergeRec(0, len(t))
 ```
 
 ## Counting sort
 1. Count the occurences of each possible values
 2. Put the number of occurence times each value in the array, starting from the smallest one
 ```python {.line-numbers}
-def counting_sort(array, maxval):
+def countingSort(array, maxval):
     """in-place counting sort
        O(n + maxval)"""
     m = maxval + 1
@@ -249,7 +249,7 @@ def base10Tob(q, b=2):
 ```
 ```python {.line-numbers}
 # when our base is a power of 2
-def base10toPowOf2(q, pow=1):
+def base10ToPowOf2(q, pow=1):
     s = '' 
     while q > 0 or not s: 
         q, s = q >> pow, str(q & pow) + s 
@@ -259,7 +259,7 @@ def base10toPowOf2(q, pow=1):
 ```python {.line-numbers}
 #-- When there is no 0 in our base
 # for instance counting excel columns
-def base10tobNoZero(q, b=2):
+def base10TobNoZero(q, b=2):
     s = ''
     while q > 0 or not s:
         q, r = divmod(q - 1, b)  # -1 to remove 0
