@@ -1,5 +1,8 @@
-Cracking the coding interviews
+
 ===
+
+![](https://hips.hearstapps.com/esq.h-cdn.co/assets/15/15/1428516335-1428506326-siliconvalleydickjokescreenshot.jpg)
+
 # TODO
 - [ ] [Technical tips](https://medium.freecodecamp.org/coding-interviews-for-dummies-5e048933b82b)
 - [ ] [Other](https://medium.com/@nickciubotariu/ace-the-coding-interview-every-time-d169ce1fd3fc)
@@ -8,7 +11,7 @@ Cracking the coding interviews
 # Interview tips
 
 1. Ask questions about the problem to clarify it.
-2. DON'T JUMP INTO THE CODE, **THINK AND DISCUSS**.
+2. Don't jump into the code, **think and discuss**.
 3. Don't stay muted for a while, clarify when you are thinking, "Can I think for a second?".
 4. Think out loud.
 5. Multiply the examples.
@@ -22,7 +25,7 @@ Cracking the coding interviews
 5. Can a **frequency array** help me ?
 6. Can **multiple pass** help me ?
 7. Can **case-based reasoning** help me ?
-8. Is there an **end** property ?
+8. Is there an **ends here/with** property ?
 
 # Tricks
 * Checking if $i \in Stack$ in $O(1)$: just keep updated a **is_in-array** `is_in_stack` where `is_in_stack[i]` tells whether $i \in Stack$.
@@ -73,7 +76,7 @@ Can I save time by using more space ?
   * $O(n)$:  `del l[i]`, `l[inf:sup:step]`
   * $O(nlog_2(n))$: `l.sort()`, `sorted(l)` 
 * **Queue** 
-  * $O(1)$:  `dq = deque()`,`dq.popleft()` ,  `dq.popleft()` + normal list operations except slices
+  * $O(1)$:  `dq = deque()`, `dq.popleft()` ,  `dq.appendleft(x)` + normal list operations except slices
 
 
 * **Dictionary / Hashtable**
@@ -82,8 +85,8 @@ Can I save time by using more space ?
   * $O(1)$:  `s = set([])`, `x in s`, `s.add(x)`, `del s[x]`
   * $O(n_1)$: `s1|s2 ` , `s1&s2` , `s1-s2`,  `s1^s2`
 * **Heap / Priority Queue**
-  * $O(1)$: `heap = []`
-  * $O(log_2(n))$: `heappush, heappop`
+  * $O(1)$: `h = []`
+  * $O(log_2(n))$: `heappush(h, x), heappop(h)`
   * $O(nlog_2(n) )$: `heap = heapfy([1, 5, 2, 3...])` 
 
 # Recursion
@@ -182,7 +185,7 @@ def countingSort(array, maxval):
 1. **Recursive** solution
 2. **Store** intermediate results
 3. Bottom up (Optional)
->* Consider adding **dummy values** because things like `res[x][y]` may throw index errors.
+>* Consider adding **dummy values** because things like `res[x][y]` may throw index errors on corner cases.
 > * It can be easier to find the size of the best solution and then **backtrack** to find the solution.
 ### Recursive solution
 ```python {.line-numbers}
@@ -308,7 +311,7 @@ You should ideally now about:
 
 ## Numeric/mathematical
 
-* Kadane's algorithm
+* Kadane's algorithm (maximum subarray)
     * every subarray has an ending
     * the maximum subarray ending at the spot `i + 1 is either`
        1. maximum subarray ending at the spot `i` +  `A[i + 1]`
