@@ -1,12 +1,15 @@
-
+The definitive coding interview cheat-sheet 
 ===
 
 ![](https://hips.hearstapps.com/esq.h-cdn.co/assets/15/15/1428516335-1428506326-siliconvalleydickjokescreenshot.jpg)
 
-# TODO
-- [ ] [Technical tips](https://medium.freecodecamp.org/coding-interviews-for-dummies-5e048933b82b)
-- [ ] [Other](https://medium.com/@nickciubotariu/ace-the-coding-interview-every-time-d169ce1fd3fc)
-- [ ] [Top 10 questions per topic](https://www.geeksforgeeks.org/top-10-algorithms-in-interview-questions/)
+# Ressources
+- [ ] [Datastructures & algorithms](https://github.com/kdn251/interviews)
+- [ ] [Full CS course](https://medium.com/basecs)
+- [ ] [Questions per data structures](https://github.com/yangshun/tech-interview-handbook/tree/master/algorithms)
+- [ ] [Psychological tricks](https://github.com/yangshun/tech-interview-handbook/blob/master/non-technical/psychological-tricks.md)
+- [ ] [Gold mine](https://github.com/yangshun/tech-interview-handbook)
+- [ ] [Source of the sources](https://medium.freecodecamp.org/coding-interviews-for-dummies-5e048933b82b)
 
 # Interview tips
 
