@@ -18,7 +18,8 @@ The definitive coding interview cheat-sheet
 3. Don't stay muted for a while, clarify when you are thinking, "Can I think for a second?".
 4. Think out loud.
 5. Multiply the examples.
-6. Ask for approval before coding, "Does it seem like a good strategy ?" "Should I start coding ?"
+6. List the corner cases.
+7. Ask for approval before coding, "Does it seem like a good strategy ?" "Should I start coding ?"
 
 # Reflexes
 1. Can **sorting** input data help me ?
@@ -91,6 +92,8 @@ Can I save time by using more space ?
   * $O(1)$: `h = []`
   * $O(log_2(n))$: `heappush(h, x), heappop(h)`
   * $O(nlog_2(n) )$: `heap = heapfy([1, 5, 2, 3...])` 
+  * `left = 2*i; right = left+1; father = i//2` if `h[0]` in a 1-based array 
+  * `left = 2*i+1; right = 2*i+2; father = depends on parity` otherwise
 
 # Recursion
 ```python
@@ -115,12 +118,12 @@ def bisect(xs, key, f):
     return left
 ```
 When will they cross ?
-* `f(x, key) = x < key` &#10140; Move left when `x == key`
+* `f(x, key) = x < key` &#10140; Move `right` when `x == key`
     * Index of the first occurrence of key
-* `f(x, key) = x <= key` &#10140; Move right when `x == key`
+* `f(x, key) = x <= key` &#10140; Move `left` when `x == key`
     * Index of the last occurrence of key + 1
 ```python
-bisect_left  = lambda xs,key: bisect(xs, key, lambda x,y: x<y)       # First
+bisect_left  = lambda xs,key: bisect(xs, key, lambda x,y: x<y)  # First occ
 bisect_right = lambda xs,key: bisect(xs, key, lambda x,y: x<=y) - 1  # Last
 ```
 * Might be necessary to check if the final value points to key
