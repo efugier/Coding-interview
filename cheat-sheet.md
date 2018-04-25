@@ -159,7 +159,7 @@ def mergeSort(t):
             j = i + (k - i) // 2
             mergeRec(i, j)
             mergeRec(j, k)
-            fuse(t, i, j, k, aux)
+            merge(t, i, j, k, aux)
             t[i:k] = aux[i:k]
             
     mergeRec(0, len(t))
