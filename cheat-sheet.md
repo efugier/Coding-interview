@@ -398,7 +398,3 @@ You should ideally now about:
 
 # Links
 [Lot's of info](https://www.geeksforgeeks.org)
-
-## Bloomberg
-* [Bloomberg](https://www.geeksforgeeks.org/bloomberg-recruitment-process/)
-* [Interview + know bloomberg](https://www.geeksforgeeks.org/bloomberg-interview-experience-set-5-entry-level-software-engineer/)
