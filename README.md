@@ -1,7 +1,7 @@
 Coding interview reference 
 ===
 This repo contains:
-* A coding interview cheat-sheet providing the main ideas and methid, as well as complexity and data structure fundamentals.
+* A coding interview cheat-sheet providing the main ideas and method, as well as complexity and data structure fundamentals.
 * Some code solving some common interview question (intended for personnal use but you can have a look).
 
 Checkout the cheat-sheet **[here](https://EFugier.github.io/Coding-interview)**.
