@@ -6,4 +6,4 @@ This repo contains:
 
 Checkout the cheat-sheet **[here](https://EFugier.github.io/Coding-interview)**.
 
-The raw `.md` is provided in the source. As it includes some (basic) maths, I suggest the use a markdown editor that supports latex ([MarkText](https://marktext.github.io/website/), [Typora](https://typora.io/), [Hackmd.io](https://hackmd.io), ...).
+The raw `.md` is provided in the source. As it includes some (basic) maths, I suggest the use of a markdown editor that supports latex ([MarkText](https://marktext.github.io/website/), [Typora](https://typora.io/), [Hackmd.io](https://hackmd.io), ...).
