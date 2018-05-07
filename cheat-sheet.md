@@ -1,56 +1,62 @@
-Cracking the coding interviews
+The definitive coding interview cheat-sheet 
 ===
-# TODO
-- [ ] Checkout the *set* structure in python
-- [ ] Datastructure section
-- [x] Bisection search
-- [ ] Merge sort
-- [ ] Quick search
-- [x] Décomposition dans une base
-- [x] Infinite boundaries
-- [ ] [Technical tips](https://medium.freecodecamp.org/coding-interviews-for-dummies-5e048933b82b)
-- [ ] [Other](https://medium.com/@nickciubotariu/ace-the-coding-interview-every-time-d169ce1fd3fc)
-- [ ] [Top 10 questions per topic](https://www.geeksforgeeks.org/top-10-algorithms-in-interview-questions/)
+
+![](https://hips.hearstapps.com/esq.h-cdn.co/assets/15/15/1428516335-1428506326-siliconvalleydickjokescreenshot.jpg)
+
+# Ressources
+- [ ] [Datastructures & algorithms](https://github.com/kdn251/interviews)
+- [ ] [Full CS course](https://medium.com/basecs)
+- [ ] [Questions per data structures](https://github.com/yangshun/tech-interview-handbook/tree/master/algorithms)
+- [ ] [Psychological tricks](https://github.com/yangshun/tech-interview-handbook/blob/master/non-technical/psychological-tricks.md)
+- [ ] [Gold mine](https://github.com/yangshun/tech-interview-handbook)
+- [ ] [Source of the sources](https://medium.freecodecamp.org/coding-interviews-for-dummies-5e048933b82b)
 
 # Interview tips
 
 1. Ask questions about the problem to clarify it.
-2. DON'T JUMP INTO THE CODE, **THINK AND DISCUSS**.
+2. Don't jump into the code, **think and discuss**.
 3. Don't stay muted for a while, clarify when you are thinking, "Can I think for a second?".
 4. Think out loud.
 5. Multiply the examples.
-6. Ask for approval before coding, "Does it seem like a good strategy ?" "Should I start coding ?"
+6. List the corner cases.
+7. Ask for approval before coding, "Does it seem like a good strategy ?" "Should I start coding ?"
 
 # Reflexes
-1. Can **sorting** help me ?
-2. Can a **dictionary** help me ?
-3. Can **multiple pointers** help me ?
-4. Can a **frequency array** help me ?
-5. Can **multiple pass** help me ?
-6. Is there an **end** property ?
+1. Can **sorting** input data help me ?
+2. Can **splitting** input data help me ? 
+3. Can a **dictionary** help me ?
+4. Can **multiple pointers** help me ?
+5. Can a **frequency array** help me ?
+6. Can **multiple pass** help me ?
+7. Can **case-based reasoning** help me ?
+8. Is there an **ends here/with** property ?
 
 # Tricks
 * Checking if $i \in Stack$ in $O(1)$: just keep updated a **is_in-array** `is_in_stack` where `is_in_stack[i]` tells whether $i \in Stack$.
-* Think about **bitwise operators**.
+* Sets with fewer than 64 possible items can be [coded as integers](#coding-sets-on-bits).
 * For singly linked lists, creating **2 pointers** $n$ nodes apart may be handy. It is also applicable to every sequence of elements. (find the middle / $n^{th}$ from the end, a cycle...)
 * Use **infinite boundaries** `float('inf')` or`math.inf`.
 * Use **frequency arrays** when counting letters. A **counting sort** might also prove useful (as it is linear for frequencies) later on. 
 * To find $a$ and $b$ in a array so that $a+b = c$, save every seen number in a set $S$ and for every new $i$, check if $c-i \in S$.
 
 # Properties to look for
-* **Sorted** -> *Bisection search*.
+* **Sorted** &#10140; *Bisection search*.
 
-* **iterative DFS** -> stack
+* **iterative DFS** &#10140; stack
 
-* **BFS** -> queue
-  * Need to keep track of the depth? -> 2 queues
+* **BFS** &#10140; queue
+  * Need to keep track of the depth? &#8594; 2 queues
 
-* **Optimal substructure:** -> *Dynamic programming* to compute all the optimal solution of size $0 \ldots n$  and deduce the solution.
+* **Optimal substructure** &#10140; *Dynamic programming* to compute all the optimal solution of size $0 \ldots n$  and deduce the solution.
     *  when it is possible to craft the optimal solution for an instance size $n$ using the solution to instances of size $i_1, \ldots, i_p < n$.
     * Can be on a pair of parameters, solution of size $(n, k)$ can be deduced from solution of size $(i, j)$ where $i \leq n$ and $j \leq k$.
     > **Examples:** subarray, knapsack, longest substring
 
 # Strategies
+
+## Do It Yourself
+
+Solve an example with your brain and hands and see what "algorithm" you used.
 
 ## B.U.D.
 
@@ -65,10 +71,6 @@ Can I save time by using more space ?
 * Frequency arrays
 * Dynamic programming
 
-## Do It Yourself
-
-Solve an example with your brain and hands and see what "algorithm" it used.
-
 
 
 # Data Structures
@@ -78,7 +80,7 @@ Solve an example with your brain and hands and see what "algorithm" it used.
   * $O(n)$:  `del l[i]`, `l[inf:sup:step]`
   * $O(nlog_2(n))$: `l.sort()`, `sorted(l)` 
 * **Queue** 
-  * $O(1)$:  `dq = deque()`,`dq.popleft()` ,  `dq.popleft()` + normal list operations except slices
+  * $O(1)$:  `dq = deque()`, `dq.popleft()` ,  `dq.appendleft(x)` + normal list operations except slices
 
 
 * **Dictionary / Hashtable**
@@ -87,9 +89,11 @@ Solve an example with your brain and hands and see what "algorithm" it used.
   * $O(1)$:  `s = set([])`, `x in s`, `s.add(x)`, `del s[x]`
   * $O(n_1)$: `s1|s2 ` , `s1&s2` , `s1-s2`,  `s1^s2`
 * **Heap / Priority Queue**
-  * $O(1)$: `heap = []`
-  * $O(log_2(n))$: `heappush, heappop`
+  * $O(1)$: `h = []`
+  * $O(log_2(n))$: `heappush(h, x), heappop(h)`
   * $O(nlog_2(n) )$: `heap = heapfy([1, 5, 2, 3...])` 
+  * `left = 2*i; right = left+1; father = i//2` if `h[0]` in a 1-based array 
+  * `left = 2*i+1; right = 2*i+2; father = depends on parity` otherwise
 
 # Recursion
 ```python
@@ -114,12 +118,12 @@ def bisect(xs, key, f):
     return left
 ```
 When will they cross ?
-* `f(x, key) = x < key` -> Move left when `x == key`
+* `f(x, key) = x < key` &#10140; Move `right` when `x == key`
     * Index of the first occurrence of key
-* `f(x, key) = x <= key` -> Move right when `x == key`
+* `f(x, key) = x <= key` &#10140; Move `left` when `x == key`
     * Index of the last occurrence of key + 1
 ```python
-bisect_left  = lambda xs,key: bisect(xs, key, lambda x,y: x<y)       # First
+bisect_left  = lambda xs,key: bisect(xs, key, lambda x,y: x<y)  # First occ
 bisect_right = lambda xs,key: bisect(xs, key, lambda x,y: x<=y) - 1  # Last
 ```
 * Might be necessary to check if the final value points to key
@@ -133,8 +137,8 @@ bisect_right = lambda xs,key: bisect(xs, key, lambda x,y: x<=y) - 1  # Last
 3. Merges these parts
 
 ```python {.line-numbers}
-def fuse(t, i, j, k, aux):
-    # fuse t[i:k] in aux[i:k] supposing t[i:j] and t[j:k] are sorted
+def merge(t, i, j, k, aux):
+    # merge t[i:k] in aux[i:k] assuming t[i:j] and t[j:k] are sorted
     a, b = i, j  # iterators
     for s in range(i, k):
         if a == j or (b < k and t[b] < t[a]):
@@ -146,26 +150,26 @@ def fuse(t, i, j, k, aux):
 ```
 
 ```python {.line-numbers}
-def merge_sort(t):
+def mergeSort(t):
     aux = [None] * len(t)
 
-    def merge_rec(i, k):
+    def mergeRec(i, k):
         # merge sort t from i to k
         if k > i + 1:
             j = i + (k - i) // 2
-            merge_rec(i, j)
-            merge_rec(j, k)
-            fuse(t, i, j, k, aux)
+            mergeRec(i, j)
+            mergeRec(j, k)
+            merge(t, i, j, k, aux)
             t[i:k] = aux[i:k]
             
-    merge_rec(0, len(t))
+    mergeRec(0, len(t))
 ```
 
 ## Counting sort
 1. Count the occurences of each possible values
 2. Put the number of occurence times each value in the array, starting from the smallest one
 ```python {.line-numbers}
-def counting_sort(array, maxval):
+def countingSort(array, maxval):
     """in-place counting sort
        O(n + maxval)"""
     m = maxval + 1
@@ -187,7 +191,7 @@ def counting_sort(array, maxval):
 1. **Recursive** solution
 2. **Store** intermediate results
 3. Bottom up (Optional)
->* Consider adding **dummy values** because things like `res[x][y]` may throw index errors.
+>* Consider adding **dummy values** because things like `res[x][y]` may throw index errors on corner cases.
 > * It can be easier to find the size of the best solution and then **backtrack** to find the solution.
 ### Recursive solution
 ```python {.line-numbers}
@@ -228,7 +232,7 @@ def f(X, Y):
     return res[-1][-1]
 ```
 
-# int <-> char
+# int &#8596; char
 ```python
 chr(65)   # -> 'A'
 ord('A')  # -> 65
@@ -254,7 +258,7 @@ def base10Tob(q, b=2):
 ```
 ```python {.line-numbers}
 # when our base is a power of 2
-def base10toPowOf2(q, pow=1):
+def base10ToPowOf2(q, pow=1):
     s = '' 
     while q > 0 or not s: 
         q, s = q >> pow, str(q & pow) + s 
@@ -264,7 +268,7 @@ def base10toPowOf2(q, pow=1):
 ```python {.line-numbers}
 #-- When there is no 0 in our base
 # for instance counting excel columns
-def base10tobNoZero(q, b=2):
+def base10TobNoZero(q, b=2):
     s = ''
     while q > 0 or not s:
         q, r = divmod(q - 1, b)  # -1 to remove 0
@@ -309,11 +313,11 @@ Efficient when there is less than 64 possible values
 
 You should ideally now about:
 
-(Some are overkill for an interview but nice to know as a software engineer)
+(Most are overkill for an interview but nice to know as a software engineer)
 
 ## Numeric/mathematical
 
-* Kadane's algorithm
+* Kadane's algorithm (maximum subarray)
     * every subarray has an ending
     * the maximum subarray ending at the spot `i + 1 is either`
        1. maximum subarray ending at the spot `i` +  `A[i + 1]`
@@ -336,13 +340,15 @@ You should ideally now about:
     * `res = res * a` if n odd
     * `a = a * a` otherwise
 * Matrix exponentiation
-    * Just square exponentiation with matrix
+    * use exponentiation by squaring
 * Range minimum query
 
 ## Tree/graph
 
 * BFS
+    * stack or recursion
 * DFS
+    * queue
 * Dijkstra's algorithm
 * A* search
 * Toposort
@@ -358,11 +364,13 @@ You should ideally now about:
 
 ## String
 
+* Longest common subsequence
+    * `lcs[p][q]` = lcs ending at index `p` in str1 and `q` in str2 (DP)
+    * `lcs[p][q]` = `str1[p] == str2[q] ? 1 + lcs[p-1][q-1] : max(lcs[p][q-1], lcs[p-1][q])`
 * Rabin-Karp algorithm
 * Knuth-Morris-Pratt algorithm
 * Aho-Corasick algorithm
 * Ukkonen's algorithm / SA-IS algorithm
-* Longest common subsequence
 * Manacher's algorithm
 
 ## Search
@@ -390,7 +398,3 @@ You should ideally now about:
 
 # Links
 [Lot's of info](https://www.geeksforgeeks.org)
-
-## Bloomberg
-* [Bloomberg](https://www.geeksforgeeks.org/bloomberg-recruitment-process/)
-* [Interview + know bloomberg](https://www.geeksforgeeks.org/bloomberg-interview-experience-set-5-entry-level-software-engineer/)
